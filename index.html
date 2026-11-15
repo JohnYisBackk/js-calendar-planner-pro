@@ -1,0 +1,607 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- LUCIDE ICONS -->
+    <script
+      src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"
+      defer
+    ></script>
+
+    <script src="script.js" defer></script>
+    <title>Calendar Planner PRO</title>
+  </head>
+  <body>
+    <!-- ========================================== -->
+    <!-- APP WRAPPER -->
+    <!-- ========================================== -->
+    <div class="app-wrapper">
+      <!-- ========================================== -->
+      <!-- HEADER / TOP NAVIGATION -->
+      <!-- ========================================== -->
+      <header class="header">
+        <a href="#" class="logo">
+          <h2>Calendar</h2>
+        </a>
+
+        <nav class="nav">
+          <a href="#" class="nav-link">
+            <i data-lucide="home"></i>
+          </a>
+          <a href="#" class="nav-link">
+            <i data-lucide="calendar-days"></i>
+          </a>
+          <a href="#" class="nav-link">
+            <i data-lucide="users"></i>
+          </a>
+          <a href="#" class="nav-link">
+            <i data-lucide="chart-no-axes-column"></i>
+          </a>
+          <a href="#" class="nav-link">
+            <i data-lucide="message-circle"></i>
+          </a>
+          <a href="#" class="nav-link">
+            <i data-lucide="settings"></i>
+          </a>
+        </nav>
+
+        <div class="header-side">
+          <button
+            type="button"
+            class="theme-toggle-btn"
+            id="themeToggleBtn"
+            aria-label="Switch to light mode"
+          >
+            <i data-lucide="sun"></i>
+          </button>
+
+          <button type="button" class="search-icon" aria-label="Search events">
+            <i data-lucide="search"></i>
+          </button>
+          <button
+            type="button"
+            class="notifications-icon"
+            aria-label="Show notifications"
+          >
+            <i data-lucide="bell"></i>
+          </button>
+
+          <div class="user-profile">
+            <img src="assets/avatar.png" alt="avatar photo" />
+
+            <div class="user-profile-content">
+              <p>Samuel</p>
+              <span>Johny</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- ========================================== -->
+      <!-- MAIN DASHBOARD -->
+      <!-- ========================================== -->
+      <main class="dashboard">
+        <!-- ========================================== -->
+        <!-- LEFT PANEL -->
+        <!-- ========================================== -->
+        <aside class="left-panel">
+          <!-- ========================================== -->
+          <!-- MINI CALENDAR SECTION -->
+          <!-- ========================================== -->
+          <section class="mini-calendar-section">
+            <div class="mini-calendar-header">
+              <h3 class="mini-calendar-title" id="miniCalendarTitle">
+                November 2026
+              </h3>
+
+              <div class="mini-calendar-navigation">
+                <button
+                  type="button"
+                  class="mini-calendar-nav-btn"
+                  id="prevMonthBtn"
+                  aria-label="Previous month"
+                >
+                  <i data-lucide="chevron-left"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="mini-calendar-nav-btn"
+                  id="nextMonthBtn"
+                  aria-label="Next month"
+                >
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="mini-calendar-weekdays">
+              <span>M</span>
+              <span>T</span>
+              <span>W</span>
+              <span>T</span>
+              <span>F</span>
+              <span>S</span>
+              <span>S</span>
+            </div>
+
+            <div
+              class="mini-calendar-days"
+              id="miniCalendarDays"
+              aria-label="Calendar dates"
+            ></div>
+
+            <div class="mini-calendar-footer">
+              <span class="mini-calendar-today-label">
+                <span class="mini-calendar-today-dot"></span>
+                Today
+              </span>
+
+              <button
+                type="button"
+                class="mini-calendar-today-btn"
+                id="miniCalendarTodayBtn"
+              >
+                Go to today
+                <i data-lucide="arrow-up-right"></i>
+              </button>
+            </div>
+          </section>
+
+          <!-- ========================================== -->
+          <!-- UPCOMING EVENTS TODAY SECTION -->
+          <!-- ========================================== -->
+          <section class="upcoming-events-section">
+            <div class="upcoming-events-header">
+              <h3 class="upcoming-events-title">Upcoming events today</h3>
+
+              <button
+                type="button"
+                class="upcoming-events-view-all"
+                id="viewAllEventsBtn"
+              >
+                View all
+              </button>
+            </div>
+
+            <div class="upcoming-events-list" id="upcomingEventsList">
+              <div class="upcoming-event-item">
+                <label class="upcoming-event-info">
+                  <input type="checkbox" class="upcoming-event-checkbox" />
+
+                  <span class="upcoming-event-name">
+                    Project presentation
+                  </span>
+                </label>
+
+                <span class="upcoming-event-time"> 08:30 - 10:30 </span>
+              </div>
+
+              <div class="upcoming-event-item">
+                <label class="upcoming-event-info">
+                  <input type="checkbox" class="upcoming-event-checkbox" />
+
+                  <span class="upcoming-event-name"> Design review </span>
+                </label>
+
+                <span class="upcoming-event-time"> 11:40 - 12:10 </span>
+              </div>
+
+              <div class="upcoming-event-item">
+                <label class="upcoming-event-info">
+                  <input type="checkbox" class="upcoming-event-checkbox" />
+
+                  <span class="upcoming-event-name"> Lunch break </span>
+                </label>
+
+                <span class="upcoming-event-time"> 12:00 - 13:00 </span>
+              </div>
+
+              <div class="upcoming-event-item">
+                <label class="upcoming-event-info">
+                  <input type="checkbox" class="upcoming-event-checkbox" />
+
+                  <span class="upcoming-event-name"> Leading a workshop </span>
+                </label>
+
+                <span class="upcoming-event-time"> 13:00 - 15:00 </span>
+              </div>
+            </div>
+
+            <p class="upcoming-events-empty" id="upcomingEventsEmpty" hidden>
+              No upcoming events for today.
+            </p>
+          </section>
+
+          <!-- ========================================== -->
+          <!-- TIME BREAKDOWN SECTION -->
+          <!-- ========================================== -->
+          <section class="time-breakdown-section">
+            <div class="time-breakdown-header">
+              <h3 class="time-breakdown-title">Time breakdown</h3>
+
+              <button
+                type="button"
+                class="time-breakdown-view-all"
+                id="viewTimeBreakdownBtn"
+              >
+                View all
+              </button>
+            </div>
+
+            <div class="time-breakdown-list">
+              <div class="time-breakdown-item">
+                <span class="time-breakdown-label">Meetings</span>
+
+                <div
+                  class="time-breakdown-progress"
+                  role="progressbar"
+                  aria-label="Meetings"
+                  aria-valuenow="65"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <span
+                    class="time-breakdown-fill meeting-fill"
+                    style="width: 65%"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="time-breakdown-item">
+                <span class="time-breakdown-label">Projects</span>
+
+                <div
+                  class="time-breakdown-progress"
+                  role="progressbar"
+                  aria-label="Projects"
+                  aria-valuenow="80"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <span
+                    class="time-breakdown-fill project-fill"
+                    style="width: 80%"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="time-breakdown-item">
+                <span class="time-breakdown-label">Events</span>
+
+                <div
+                  class="time-breakdown-progress"
+                  role="progressbar"
+                  aria-label="Events"
+                  aria-valuenow="40"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <span
+                    class="time-breakdown-fill event-fill"
+                    style="width: 40%"
+                  ></span>
+                </div>
+              </div>
+
+              <div class="time-breakdown-item">
+                <span class="time-breakdown-label">Reviews</span>
+
+                <div
+                  class="time-breakdown-progress"
+                  role="progressbar"
+                  aria-label="Reviews"
+                  aria-valuenow="75"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                >
+                  <span
+                    class="time-breakdown-fill review-fill"
+                    style="width: 75%"
+                  ></span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- ========================================== -->
+          <!-- MY CALENDARS SECTION -->
+          <!-- ========================================== -->
+          <section class="my-calendars-section">
+            <div class="my-calendars-header">
+              <h3 class="my-calendars-title">My Calendars</h3>
+
+              <button
+                type="button"
+                class="my-calendars-add-btn"
+                id="addCalendarBtn"
+                aria-label="Add calendar"
+              >
+                <i data-lucide="plus"></i>
+              </button>
+            </div>
+
+            <div class="my-calendars-list" id="myCalendarsList"></div>
+          </section>
+        </aside>
+
+        <!-- ========================================== -->
+        <!-- MAIN CALENDAR SECTION -->
+        <!-- ========================================== -->
+        <section class="main-calendar-section">
+          <div class="main-calendar-header">
+            <div class="main-calendar-heading">
+              <div class="main-calendar-title-group">
+                <h1 class="main-calendar-title" id="mainCalendarTitle">
+                  November 2026
+                </h1>
+
+                <span class="main-calendar-subtitle" id="mainCalendarSubtitle">
+                  Plan and organize your schedule
+                </span>
+              </div>
+
+              <div class="main-calendar-navigation">
+                <button
+                  type="button"
+                  class="calendar-today-btn"
+                  id="calendarTodayBtn"
+                >
+                  Today
+                </button>
+
+                <button
+                  type="button"
+                  class="calendar-nav-btn"
+                  id="prevWeekBtn"
+                  aria-label="Previous week"
+                >
+                  <i data-lucide="chevron-left"></i>
+                </button>
+
+                <button
+                  type="button"
+                  class="calendar-nav-btn"
+                  id="nextWeekBtn"
+                  aria-label="Next week"
+                >
+                  <i data-lucide="chevron-right"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="main-calendar-actions">
+              <div class="calendar-view-switcher">
+                <button
+                  type="button"
+                  class="calendar-view-btn"
+                  data-view="month"
+                >
+                  Month
+                </button>
+
+                <button
+                  type="button"
+                  class="calendar-view-btn active"
+                  data-view="week"
+                >
+                  Week
+                </button>
+
+                <button type="button" class="calendar-view-btn" data-view="day">
+                  Day
+                </button>
+              </div>
+
+              <button type="button" class="add-event-btn" id="addEventBtn">
+                <i data-lucide="plus"></i>
+                <span>Add Event</span>
+              </button>
+            </div>
+          </div>
+
+          <div class="main-calendar-content">
+            <div class="calendar-week-header">
+              <div class="calendar-time-header">GMT+1</div>
+
+              <div class="calendar-week-days" id="calendarWeekDays">
+                <!-- Generated by JavaScript -->
+              </div>
+            </div>
+
+            <div class="calendar-scroll-area" id="calendarScrollArea">
+              <div class="calendar-time-grid">
+                <div class="calendar-time-labels" id="calendarTimeLabels">
+                  <!-- Generated by JavaScript -->
+                </div>
+
+                <div class="calendar-days-grid" id="calendarDaysGrid">
+                  <!-- Generated by JavaScript -->
+                </div>
+
+                <div class="calendar-events-layer" id="calendarEventsLayer">
+                  <!-- Generated by JavaScript -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- ========================================== -->
+      <!-- EVENT MODAL -->
+      <!-- ========================================== -->
+      <dialog class="event-modal" id="eventModal">
+        <div class="event-modal-container">
+          <div class="event-modal-header">
+            <div class="event-modal-heading">
+              <span class="event-modal-label">CALENDAR EVENT</span>
+              <h2 class="event-modal-title" id="eventModalTitle">
+                Add New Event
+              </h2>
+              <p class="event-modal-description">
+                Organize your schedule and stay productive.
+              </p>
+            </div>
+
+            <button
+              type="button"
+              class="event-modal-close-btn"
+              id="closeEventModalBtn"
+              aria-label="Close event modal"
+            >
+              <i data-lucide="x"></i>
+            </button>
+          </div>
+
+          <form class="event-form" id="eventForm">
+            <div class="event-form-group">
+              <label for="eventTitle">Event Title</label>
+
+              <input
+                type="text"
+                id="eventTitle"
+                name="title"
+                placeholder="e.g. Meeting with the team"
+                maxlength="80"
+                required
+              />
+            </div>
+
+            <div class="event-form-group">
+              <label for="eventDescription">Description</label>
+
+              <textarea
+                id="eventDescription"
+                name="description"
+                placeholder="Add event details..."
+                rows="3"
+              ></textarea>
+            </div>
+
+            <div class="event-form-group">
+              <label for="eventDate">Date</label>
+
+              <div class="event-input-wrapper">
+                <input type="date" id="eventDate" name="date" required />
+              </div>
+            </div>
+
+            <div class="event-form-row">
+              <div class="event-form-group">
+                <label for="eventStartTime">Start Time</label>
+
+                <input
+                  type="time"
+                  id="eventStartTime"
+                  name="startTime"
+                  required
+                />
+              </div>
+
+              <div class="event-form-group">
+                <label for="eventEndTime">End Time</label>
+
+                <input type="time" id="eventEndTime" name="endTime" required />
+              </div>
+            </div>
+
+            <div class="event-form-group">
+              <label for="eventCalendar">Calendar</label>
+
+              <select id="eventCalendar" name="calendar" required>
+                <option value="personal">Personal</option>
+                <option value="work">Work</option>
+                <option value="meetings">Meetings</option>
+                <option value="important">Important</option>
+              </select>
+            </div>
+
+            <div class="event-form-group">
+              <label for="eventLocation">Location</label>
+
+              <div class="event-input-wrapper">
+                <i data-lucide="map-pin"></i>
+
+                <input
+                  type="text"
+                  id="eventLocation"
+                  name="location"
+                  placeholder="Add location (optional)"
+                />
+              </div>
+            </div>
+
+            <div class="event-modal-actions">
+              <button
+                type="button"
+                class="event-delete-btn"
+                id="deleteEventBtn"
+                hidden
+              >
+                <i data-lucide="trash-2"></i>
+                Delete
+              </button>
+
+              <div class="event-modal-actions-right">
+                <button
+                  type="button"
+                  class="event-cancel-btn"
+                  id="cancelEventBtn"
+                >
+                  Cancel
+                </button>
+
+                <button type="submit" class="event-save-btn" id="saveEventBtn">
+                  <i data-lucide="check"></i>
+                  <span id="saveEventBtnText">Save Event</span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </dialog>
+
+      <!-- ========================================== -->
+      <!-- FOOTER -->
+      <!-- ========================================== -->
+      <footer class="footer">
+        <div class="footer-left">
+          <p class="footer-copyright">
+            &copy; 2026 Calendar Planner PRO. All rights reserved.
+          </p>
+        </div>
+
+        <div class="footer-center">
+          <span class="footer-status-dot"></span>
+          <span class="footer-status-text"> Your schedule, organized. </span>
+        </div>
+
+        <div class="footer-right">
+          <span>Designed & Developed by</span>
+
+          <a
+            href="https://github.com/JohnyIsBackk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="footer-author"
+          >
+            Samuel JohnY
+            <i data-lucide="arrow-up-right"></i>
+          </a>
+        </div>
+      </footer>
+    </div>
+  </body>
+</html>
