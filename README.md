@@ -10,7 +10,7 @@ The project focuses on DOM manipulation, state management, date handling, event 
 
 ## 🌐 Live Demo
 
-**[View Live Demo]()**
+**[View Live Demo](https://johnyisbackk.github.io/js-calendar-planner-pro/)**
 
 ---
 
